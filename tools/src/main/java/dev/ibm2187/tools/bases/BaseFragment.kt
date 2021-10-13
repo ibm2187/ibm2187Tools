@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.viewbinding.ViewBinding
 
 abstract class BaseFragment<V : ViewBinding> : Fragment() {
@@ -14,7 +15,6 @@ abstract class BaseFragment<V : ViewBinding> : Fragment() {
     private var _ViewBinding: V? = null
     val binding get() = _ViewBinding!!
 
-    abstract fun onBackPress()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -40,6 +40,10 @@ abstract class BaseFragment<V : ViewBinding> : Fragment() {
                     onBackPress()
                 }
             })
+    }
+
+    open fun onBackPress() {
+        findNavController().popBackStack()
     }
 
 
