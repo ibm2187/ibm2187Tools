@@ -57,7 +57,7 @@ dependencies {
 def githubProperties = new Properties()
 githubProperties.load(new FileInputStream(rootProject.file("github.properties")))
 def getVersionName = { ->
-    return "0.0.7"  // Replace with version Name
+    return "0.0.8"  // Replace with version Name
 }
 def getArtificatId = { ->
     return "tools" // Replace with library name ID
